@@ -1,15 +1,26 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get, Param, NotFoundException, Post, Body } from '@nestjs/common';
 
 @Controller('recados')
 export class RecadosController {
-    //find all recados
-    findAll() {
-        return 'This route will return all recados';
+
+    private readonly recados = ['Recado 1', 'Recado 2', 'Recado 3'];
+  @Get()
+  findAll() {
+    return this.recados;
+  }
+
+  @Get(':id')
+  findOne(@Param('id') grdId: number) {
+    const recado= this.recados[--grdId];
+    if (!recado) {
+      throw new NotFoundException(`Message not found for id: ${grdId}`);
     }
+    return recado;
+  }
 
-
-
-//find one recado by id
-findOne() {
-    return `This route will return a recado by id`;
+  @Post()
+  create(@Body() body: any) {
+    return body;
+  }
 }
+
