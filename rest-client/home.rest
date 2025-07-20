@@ -26,3 +26,7 @@ Content-Type: application/json
   "recado": "This is the New Recado",
   "nova chave": "another value."
 }
+
+###
+#Delete a recado
+DELETE  {{baseUrl}}/recados/1
