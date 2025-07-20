@@ -16,3 +16,13 @@ Content-Type: application/json
   "recado": "This is the New Recado",
   "nova chave": "another value."
 }
+
+###
+#Atualiza um rcado
+PATCH  {{baseUrl}}/recados/1
+Content-Type: application/json
+
+{
+  "recado": "This is the New Recado",
+  "nova chave": "another value."
+}
